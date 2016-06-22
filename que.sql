@@ -142,7 +142,7 @@ end;
 declare
  r que.que;
  begin
-   select q.* into r from que.que q where q.id=fail.id for update;
+   select q.* into r from que.que q where q.id=fail.id for update skip locked;
    if not found then
      raise sqlstate 'QU001' using message='Cannot find specified message. The message does not exists or not already locked by current backend';
    end if;
