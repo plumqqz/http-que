@@ -4,7 +4,7 @@ import json
 import requests
 import time
 
-conn = psycopg2.connect("dbname='work' user='postgres' host='localhost' password='****'")
+conn = psycopg2.connect("dbname='work' user='postgres' host='localhost' password='root'")
 cr = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
 while 1 :
