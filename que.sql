@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.3
+-- Dumped from database version 9.5.4
 -- Dumped by pg_dump version 9.5.2
 
 SET statement_timeout = 0;
@@ -83,7 +83,7 @@ declare
      return;
    end if;
    update que.que q set is_done=true, is_fail=false, tries_cnt=q.tries_cnt+1, headers=done.headers, body=done.body where q.id=done.id;
-   if r.on_fail is not null then
+   if r.on_success is not null then
     begin    
      execute 'select ' || r.on_success using r.id;
     exception
